@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export function StarsStacked({ count, stopPropagation = true, nth = 1, }) {
+export function StarsStacked({ count, stopPropagation = true, nth = 1, ...props }) {
 	const [isHovered, setIsHovered] = useState(false);
 
 	if (count <= 0) {
@@ -12,8 +12,9 @@ export function StarsStacked({ count, stopPropagation = true, nth = 1, }) {
 	return (
 		<>
 			<div
+				{...props}
 				key={count}
-				style={{ display: "inline" }}
+				style={{ ...(props.style || {}), display: "inline" }}
 				onMouseEnter={() => setIsHovered(true)}
 				onMouseLeave={() => setIsHovered(false)}
 				onClick={(e) => {
@@ -28,7 +29,7 @@ export function StarsStacked({ count, stopPropagation = true, nth = 1, }) {
 				{/* 
 				 	try changing the order of the "Stars" component & the "div" element
 				 */}
-				<StarsStacked count={count - 1} stopPropagation={stopPropagation} nth={nth + 1} />
+				<StarsStacked count={count - 1} stopPropagation={stopPropagation} nth={nth + 1} style={{ marginLeft: "4px" }} />
 			</div>
 		</>
 	);
@@ -39,7 +40,7 @@ export function StarsStacked({ count, stopPropagation = true, nth = 1, }) {
  * but not nested
  * (see the order of the recursive "StarsStacked" vs "StarsIndividual" placement)
  */
-export function StarsIndividual({ count, nth = 1 }) {
+export function StarsIndividual({ count, nth = 1, ...props }) {
 	const [isHovered, setIsHovered] = useState(false);
 
 	if (count <= 0) {
@@ -51,8 +52,9 @@ export function StarsIndividual({ count, nth = 1 }) {
 	return (
 		<>
 			<div
+				{...props}
 				key={count}
-				style={{ display: "inline" }}
+				style={{ ...(props.style || {}), display: "inline" }}
 				onMouseEnter={() => setIsHovered(true)}
 				onMouseLeave={() => setIsHovered(false)}
 				onClick={() => alert(`${nth} stars selected`)}
@@ -63,7 +65,7 @@ export function StarsIndividual({ count, nth = 1 }) {
 				 	try changing the order of the "Stars" component & the "div" element
 				 */}
 			</div>
-			<StarsIndividual count={count - 1} nth={nth + 1} />
+			<StarsIndividual count={count - 1} nth={nth + 1} style={{ marginLeft: "4px" }} />
 		</>
 	);
 }
