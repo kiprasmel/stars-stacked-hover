@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/stars-stacked-hover/with-react/build/static/css/main.1f3e7b4d.css",
+    "main.js": "/stars-stacked-hover/with-react/build/static/js/main.3a48172e.js",
+    "index.html": "/stars-stacked-hover/with-react/build/index.html",
+    "main.1f3e7b4d.css.map": "/stars-stacked-hover/with-react/build/static/css/main.1f3e7b4d.css.map",
+    "main.3a48172e.js.map": "/stars-stacked-hover/with-react/build/static/js/main.3a48172e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1f3e7b4d.css",
+    "static/js/main.3a48172e.js"
+  ]
+}
